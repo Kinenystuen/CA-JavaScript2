@@ -8,25 +8,37 @@ import { loader, loaderW } from "../../utilitis.mjs/loader.mjs";
 // const method = "post";
 const message = document.getElementById("regErrorMessage");
 const loginBtn = document.getElementById("loginBtn");
+const registerBtn = document.getElementById("registerBtn");
+let loginURL;
 
 let isLoggedIn = false;
+let newUser = false;
 
 export async function login(profile, action, method) {
-  const actionURL = new URL(action);
-  const loginURL = `${apiHostUrl}${actionURL.pathname}`;
+  if (action !== "/auth/login") {
+    const actionURL = new URL(action);
+    loginURL = `${apiHostUrl}${actionURL.pathname}`;
+  } else {
+    loginURL = `${apiHostUrl}${action}`;
+    newUser = true;
+  }
+  console.log(loginURL);
   const message = document.getElementById("regErrorMessage");
 
-  clearHTML(loginBtn);
-  loginBtn.appendChild(loaderW);
+  if (loginBtn) {
+    clearHTML(loginBtn);
+    loginBtn.appendChild(loaderW);
+  }
+  if (registerBtn) {
+    clearHTML(registerBtn);
+    registerBtn.appendChild(loaderW);
+  }
 
   console.log(loginURL);
   const body = JSON.stringify(profile);
 
   try {
     const response = await fetch(loginURL, {
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
       headers: headers("application/json"),
       method,
       body,
@@ -46,8 +58,15 @@ export async function login(profile, action, method) {
       const errorResponse = await response.json();
       const errorMessage = errorResponse.errors[0].message;
       message.innerHTML = errorMessage;
-      loginBtn.innerHTML = "Log in";
-      loginBtn.removeChild(loaderW);
+      if (loginBtn) {
+        loginBtn.innerHTML = "Log in";
+        loginBtn.removeChild(loaderW);
+      }
+      if (registerBtn) {
+        registerBtn.innerHTML = "Register";
+        registerBtn.removeChild(loader);
+      }
+
       throw new Error(`Server responded with status ${response.status}`);
     }
   } catch (error) {
@@ -58,4 +77,4 @@ export async function login(profile, action, method) {
     console.error(error);
   }
 }
-export {isLoggedIn};
+export { isLoggedIn };

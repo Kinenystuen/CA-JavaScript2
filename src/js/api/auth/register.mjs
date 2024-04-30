@@ -1,15 +1,11 @@
-import { apiHostUrl, apiAuth, apiRegister } from "../constants.mjs";
+import { apiHostUrl, apiAuth, apiLogin } from "../constants.mjs";
 import { headers } from "../headers.mjs";
+import { login } from "./login.mjs";
 import * as storage from "../../storage/index.mjs";
 import { clearHTML } from "../../utilitis.mjs/clearHTML.mjs";
 
 export async function register(
   profile,
-  email,
-  name,
-  password,
-  avatar,
-  banner,
   action,
   method
 ) {
@@ -17,23 +13,20 @@ export async function register(
   const registerURL = `${apiHostUrl}${actionURL.pathname}`;
   const message = document.getElementById("regErrorMessage");
   const body = JSON.stringify(profile);
+  const loginAction = `${apiAuth}${apiLogin}`;
 
   try {
     const response = await fetch(registerURL, {
-      // headers: {
-      //   "Content-Type": "application/json",
-      // },
       headers: headers("application/json"),
-
       method,
       body,
-      // body: JSON.stringify({email, name, password, avatar, banner})
     });
 
     if (response.ok) {
       const result = await response.json();
       console.log(result);
       clearHTML(message);
+      login(profile, loginAction, method);
       return result;
     } else {
       const errorResponse = await response.json();

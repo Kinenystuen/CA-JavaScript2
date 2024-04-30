@@ -15,14 +15,14 @@ export function setRegisterForm() {
       const action = form.action;
       const method = form.method;
 
-      const email = formData.get("email");
-      const name = formData.get("name");
-      const password = formData.get("password");
-      const avatar = formData.get("avatar");
-      const banner = formData.get("banner");
+      // const email = formData.get("email");
+      // const name = formData.get("name");
+      // const password = formData.get("password");
+      // const avatar = formData.get("avatar");
+      // const banner = formData.get("banner");
 
       // Send data to api
-      register(profile, email, name, password, avatar, banner, action, method);
+      register(profile, action, method);
     });
   }
 }
