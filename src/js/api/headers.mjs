@@ -8,7 +8,7 @@ export const load = (key) => {
 		return null;
 	}
 };
-
+// apiKey = null
 export const headers = (contentType) => {
 	const token = load("token");
 	const headers = {};
@@ -16,10 +16,12 @@ export const headers = (contentType) => {
 	if (contentType) {
 		headers["Content-Type"] = contentType;
 	}
-
 	if (token) {
 		headers.Authorization = `Bearer ${token}`;
 	}
-
+	// if (apiKey) {
+    //     headers["X-Noroff-API-Key"] = apiKey;
+    // }
+	// console.log(headers)
 	return headers;
 };
