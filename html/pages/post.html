@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noroff Media - Home</title>
+    <title>Profile post | Noroff media</title>
     <link rel="stylesheet" href="/dist/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="/src/js/index.mjs"></script>
@@ -56,75 +56,16 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link  active">
+                                <a href="/html/pages/index.html" class="nav-link link-body-emphasis">
                                     Feed
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class=" bg-white col d-flex flex-column h-sm-100 p-0">
-                    <div class=" d-flex justify-content-between p-2 ps-4 pe-4 gap-1 flex-wrap">
-                        <button class="btn btn-primary " type="button" data-bs-toggle="collapse"
-                            data-bs-target="#newPost" aria-expanded="false" aria-controls="newPost">
-                            New post
-                        </button>
-                        <form class="d-flex fit-content" role="search">
-                            <input id="search-input" class="form-control" type="search" placeholder="Search"
-                                aria-label="Search">
-                        </form> 
-                        <select id="sortList" type="button" class="btn btn-outline-primary dropdown-toggle">
-                            <option class="dropdown-item btn bg-light" value="all">All posts</option>
-                            <option class="dropdown-item btn bg-light" value="media">Posts with media</option>
-                            <option class="dropdown-item btn bg-light" value="noMedia">Posts without media</option>
-                        </select>
-                    </div>    
-                    <div class="d-inline-flex ms-4 mt-2">
-                        
-                    </div>
-                    <div class="collapse" id="newPost">
-                        <div class="card card-body m-4 jumbotron bg-body-tertiary">
-                            <form id="createPostForm">
-                                <!-- Title input -->
-                                <div class="input-group mb-2">
-                                    <span
-                                        class="input-group-text d-flex flex-column align-items-center justify-content-center bg-white">
-                                        <img id="newPostAvatarUrl" src="" alt="" width="32" height="32"
-                                            class="rounded-circle object-fit-cover">
-                                    </span>
-                                    <input type="text" name="title" id="postTitleInput" class="form-control"
-                                        placeholder="Title" aria-label="Title" required>
-                                </div>
-                                <!-- Textarea/body input -->
-                                <textarea class="form-control" name="body" id="postBodyInput" cols="" rows="5"
-                                    placeholder="Whats on your mind?"></textarea>
-                                <!-- Tags input -->
-                                <div class="input-group mb-2">
-                                    <span
-                                        class="input-group-text d-flex flex-column align-items-center justify-content-center border-0">
-                                        <i class="fa-solid fa-tag input-icon"></i>
-                                    </span>
-                                    <input type="text" name="tags" id="postTagsInput" class="form-control rounded my-1"
-                                        placeholder="Tags (separate with , )">
-                                </div>
-                                <div class="d-flex justify-content-end mt-2 gap-4">
-                                    <!-- Img url input -->
-                                    <div class="d-flex w-100">
-                                        <span
-                                            class="input-group-text d-flex flex-column align-items-center justify-content-center border-0">
-                                            <i class="fa-solid fa-image input-icon"></i>
-                                        </span>
-                                        <input type="url" name="url" id="postUrlInput" alt="Image" class="form-control"
-                                            placeholder="Img url" id="formFile">
-                                    </div>
-                                    <!-- Submit button -->
-                                    <button id="postBtn" class="btn btn-success rounded-pill px-3" type="submit">Post</button>
-                                </div>
-                                <div class="">
-                                    <div id="errorMessage" class="badge bg-warning text-bg-warning mb-3 custom-max-width text-wrap"></div>
-                                </div>
-                            </form>
-                        </div>
+                <div class=" bg-white col d-flex flex-column h-sm-100 p-0 ">
+                    <div class="mt-3 mx-4">
+                        <a class="btn btn-primary" href="javascript:history.back()">Go back</a>
                     </div>
                     <div id="feedContainer">
                         <div class="d-flex justify-content-center align-items-center vh-60">
@@ -136,10 +77,6 @@
                 </div>
             </div>
         </div>
-        <!-- Back to top button -->
-        <button type="button" class="btn btn-primary rounded-5 btn-floating btn-m" id="btnBackToTop">
-            <i class="fas fa-arrow-up"></i>
-          </button>
         <!-- Modal -->
         <div class="modal fade" id="updatePostModal" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -155,7 +92,7 @@
                             <div class="input-group mb-2">
                                 <span
                                     class="input-group-text d-flex flex-column align-items-center justify-content-center bg-white">
-                                    <img id="updPostAvatar"
+                                    <img id="newPostAvatar"
                                         src="https://images.unsplash.com/photo-1579547945413-497e1b99dac0?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;q=80&amp;h=400&amp;w=400"
                                         alt="A blurry multi-colored rainbow background" width="32" height="32"
                                         class="rounded-circle object-fit-cover">
@@ -207,7 +144,7 @@
         <ul class="nav col-md-4 justify-content-end">
             <li class="nav-item"><a href="/html/profile/index.html"
                     class="nav-link px-2 text-body-secondary">Profile</a></li>
-            <li class="nav-item"><a href="/html/feed/index.html" class="nav-link px-2 text-body-secondary">Feed</a></li>
+            <li class="nav-item"><a href="/html/pages/index.html" class="nav-link px-2 text-body-secondary">Feed</a></li>
         </ul>
     </footer>
 </body>
