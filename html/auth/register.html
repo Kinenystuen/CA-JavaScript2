@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noroff - Social media platform</title>
+    <title>Noroff - Register</title>
     <link rel="stylesheet" href="/dist/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="/src/js/index.mjs"></script>
@@ -15,7 +15,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Noroff media</a>
+                <a class="navbar-brand" href="/index.html">Noroff media</a>
             </div>
         </nav>
     </header>
@@ -24,7 +24,7 @@
     <main class=" min-vh-80">
         <div
             class="container col-lg-5 col-sm-7 col-md-5 d-flex align-items-center justify-content-center vh-80 flex-column">
-            <form id="registerForm" method="post" action="/auth/register" class="p-4 rounded bg-white">
+            <form id="registerForm" method="post" action="/auth/register" class="p-4 rounded bg-white custom-max-width">
                 <!-- Name-->
                 <div class="input-group mb-3">
                     <span class="input-group-text">
@@ -33,6 +33,7 @@
                     <input type="text" id="inputName" name="name" class="form-control" placeholder="Username" aria-label="Username"
                         required pattern="^[\w]+$"
                         title="Username must only contain letters, numbers, and underscores (_)">
+                        <div class="help">Username must only contain letters, numbers, and underscores (_)</div>
                 </div>
                 <!-- Email-->
                 <div class="input-group mb-3">
@@ -42,34 +43,22 @@
                     <input type="email" id="inputEmail" name="email" class="form-control" placeholder="E-mail" aria-label="E-mail"
                         required pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
                         title="Only @(stud.)noroff.no domains are allowed to register">
+                        <div class="help">Only @(stud.)noroff.no domains are allowed to register</div>
                 </div>
                 <!-- Password-->
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 d-flex">
                     <span class="input-group-text" id="basic-addon1">
                         <i class="fa-solid fa-lock" style="color: #34435E;"></i>
                     </span>
                     <input type="password" id="inputPassword" name="password" class="form-control" minlength="8"
                         placeholder="Your password" aria-label="Password" required>
+                        <div class="help">Password must contain minimum 8 characters</div>
                 </div>
-                <!-- <div class="input-group mb-3">
-                    <span class="input-group-text">
-                        <i class="fa-solid fa-house" style="color: #34435E;"></i>
-                    </span>
-                    <input type="url" name="banner" id="banner" class="form-control" placeholder="Banner"
-                        aria-label="Banner" title="Add url for chosen banner">
-                </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text">
-                        <i class="fa-solid fa-image" style="color: #34435E;"></i>
-                    </span>
-                    <input type="url" name="avatar" id="inputAvatar" class="form-control" placeholder="Avatar"
-                        aria-label="Avatar" title="Add url for chosen avatar">
-                </div> -->
-                <div class="w-100">
+                <div class="">
                     <div id="regErrorMessage" class="badge bg-warning text-bg-warning mb-3"></div>
                 </div>
                 <button id="registerBtn" type="submit" class="btn btn-success">Register</button>
-                <a class="dropdown-item pt-3" href="../../index.html">Already a user?<strong> Log in</strong></a>
+                <a class="dropdown-item pt-3" href="/html/auth/login.html">Already a user?<strong> Log in</strong></a>
                 <!-- <a class="dropdown-item" href="#">Forgot password?</a> -->
             </form>
 
