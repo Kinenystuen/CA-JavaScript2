@@ -12,7 +12,8 @@
 </head>
 
 <body>
-    <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow position-relative z-3 justify-content-end" data-bs-theme="dark">
+    <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow position-relative z-3 justify-content-end"
+        data-bs-theme="dark">
         <ul class="navbar-nav flex-row d-sm-none">
             <li class="nav-item text-nowrap">
                 <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas"
@@ -72,15 +73,33 @@
                         <form class="d-flex fit-content" role="search">
                             <input id="search-input" class="form-control" type="search" placeholder="Search"
                                 aria-label="Search">
-                        </form> 
-                        <select id="sortList" type="button" class="btn btn-outline-primary dropdown-toggle">
-                            <option class="dropdown-item btn bg-light" value="all">All posts</option>
-                            <option class="dropdown-item btn bg-light" value="media">Posts with media</option>
-                            <option class="dropdown-item btn bg-light" value="noMedia">Posts without media</option>
-                        </select>
-                    </div>    
-                    <div class="d-inline-flex ms-4 mt-2">
+                        </form>
+    
+                        <div class="dropdown">
+                            <a href="#" class="d-flex btn btn-outline-primary align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <strong id="username">Sort</strong>
+                            </a>
+                            <ul class="dropdown-menu text-small shadow">
+                                <li>
+                                    <select id="sortListTag" class="form-select">
+                                        <option value="">Filter by tags</option>
+                                    </select>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <select id="sortList" class="form-select">
+                                        <option value="">Filter by media</option>
+                                        <option value="all">All posts</option>
+                                        <option value="media">Posts with media</option>
+                                        <option value="noMedia">Posts without media</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
                         
+                    </div>
+                    <div class="d-inline-flex ms-4 mt-2">
+
                     </div>
                     <div class="collapse" id="newPost">
                         <div class="card card-body m-4 jumbotron bg-body-tertiary">
@@ -118,10 +137,12 @@
                                             placeholder="Img url" id="formFile">
                                     </div>
                                     <!-- Submit button -->
-                                    <button id="postBtn" class="btn btn-success rounded-pill px-3" type="submit">Post</button>
+                                    <button id="postBtn" class="btn btn-success rounded-pill px-3"
+                                        type="submit">Post</button>
                                 </div>
                                 <div class="">
-                                    <div id="errorMessage" class="badge bg-warning text-bg-warning mb-3 custom-max-width text-wrap"></div>
+                                    <div id="errorMessage"
+                                        class="badge bg-warning text-bg-warning mb-3 custom-max-width text-wrap"></div>
                                 </div>
                             </form>
                         </div>
@@ -139,7 +160,7 @@
         <!-- Back to top button -->
         <button type="button" class="btn btn-primary rounded-5 btn-floating btn-m" id="btnBackToTop">
             <i class="fas fa-arrow-up"></i>
-          </button>
+        </button>
         <!-- Modal -->
         <div class="modal fade" id="updatePostModal" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -166,16 +187,16 @@
                             <!-- Textarea/body input -->
                             <textarea class="form-control" name="body" id="updatePostBodyInput" cols="" rows="5"
                                 placeholder="Whats on your mind?"></textarea>
-                                <!-- Tags input -->
-                                <div class="input-group mb-2">
-                                    <span
-                                        class="input-group-text d-flex flex-column align-items-center justify-content-center border-0">
-                                        <i class="fa-solid fa-tag input-icon"></i>
-                                    </span>
-                                    <input type="text" name="tags" id="updatePostTagsInput" class="form-control rounded my-1"
-                                        placeholder="Tags (separate with , )">
-                                </div>
-                                <!-- Img url input -->
+                            <!-- Tags input -->
+                            <div class="input-group mb-2">
+                                <span
+                                    class="input-group-text d-flex flex-column align-items-center justify-content-center border-0">
+                                    <i class="fa-solid fa-tag input-icon"></i>
+                                </span>
+                                <input type="text" name="tags" id="updatePostTagsInput"
+                                    class="form-control rounded my-1" placeholder="Tags (separate with , )">
+                            </div>
+                            <!-- Img url input -->
                             <div class="d-flex justify-content-end mt-2 gap-4">
                                 <div class="d-flex w-100">
                                     <span
@@ -195,7 +216,7 @@
         </div>
     </main>
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 py-4 p-3 border-top bg-light">
-        <p class="col-md-4 mb-0 text-body-secondary">© 2024 Noroffgram</p>
+        <p class="col-md-4 mb-0 text-body-secondary">© 2024 Noroff media</p>
 
         <a href="/"
             class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
