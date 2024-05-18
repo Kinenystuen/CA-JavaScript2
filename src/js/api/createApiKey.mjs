@@ -16,6 +16,7 @@ export async function createAPIKey(name = "") {
     if (response.ok) {
       const apiKeyData = await response.json();
       const apiKey = apiKeyData.data.key;
+      localStorage.setItem("apiKey", apiKey);
       return { apiKeyData, apiKey }
     } else {
 
