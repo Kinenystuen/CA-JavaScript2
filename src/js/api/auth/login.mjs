@@ -43,7 +43,7 @@ export async function login(profile, action, method) {
       save("token", accessToken);
       save("profile", user);
       clearHTML(message);
-      window.location.href = "/html/pages/index.html";
+      window.location.href = "/html/pages/feed.html";
       return user;
     } else {
       const errorResponse = await response.json();

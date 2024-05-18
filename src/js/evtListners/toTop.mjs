@@ -27,6 +27,6 @@ export function toTop() {
 }
 
 const currentUrl = window.location.href;
-if (currentUrl.includes("pages/index")) {
+if (currentUrl.includes("/pages/feed")) {
     toTop();
 }   
