@@ -1,1 +1,46 @@
+// Configuration
+@import "functions";
+@import "variables";
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "utilities";
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+
+.help {
+    display: none;
+}
+
+input:invalid + .help {
+    display: block;
+}
+
+.loaderArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin: 1rem auto;
+}
+.loader {
+    width: 25px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 4px solid;
+    border-color: $black #0000;
+    animation: loader 1s infinite;
+}
+.border-color-white {
+    border-color: $white #0000;
+}
+
+@keyframes loader {
+    to {
+        transform: rotate(.5turn);
+    }
+}
+
+body {
+    background-color: $blue;
+}

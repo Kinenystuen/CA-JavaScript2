@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noroff - Social media platform</title>
-    <link rel="stylesheet" href="dist/css/style.css">
+    <link rel="stylesheet" href="/dist/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="/src/js/index.mjs"></script>
     <script src="https://kit.fontawesome.com/c4698ad2a1.js" crossorigin="anonymous"></script>
@@ -22,43 +22,57 @@
 
 
     <main class=" min-vh-80">
-        <div id="loginContainer"
+        <div
             class="container col-lg-5 col-sm-7 col-md-5 d-flex align-items-center justify-content-center vh-80 flex-column">
-            <form id="loginForm" action="/auth/login" method="post" class="p-4 rounded bg-white">
-                <!-- <div class="input-group mb-3">
+            <form id="registerForm" method="post" action="/auth/register" class="p-4 rounded bg-white">
+                <!-- Name-->
+                <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <i class="fa-solid   fa-user" style="color: #34435E;"></i>
+                        <i class="fa-solid fa-user" style="color: #34435E;"></i>
                     </span>
-                    <input type="text" class="form-control" id="username1" placeholder="Username" aria-label="Username"
-                        aria-describedby="basic-addon1" control-id="ControlID-5" required>
-                </div> -->
+                    <input type="text" id="inputName" name="name" class="form-control" placeholder="Username" aria-label="Username"
+                        required pattern="^[\w]+$"
+                        title="Username must only contain letters, numbers, and underscores (_)">
+                </div>
+                <!-- Email-->
                 <div class="input-group mb-3">
                     <span class="input-group-text">
                         <i class="fa-solid fa-at" style="color: #34435E;"></i>
                     </span>
-                    <input type="email" id="inputEmail" name="email" class="form-control" placeholder="E-mail"
-                        aria-label="E-mail" required title="Your email">
+                    <input type="email" id="inputEmail" name="email" class="form-control" placeholder="E-mail" aria-label="E-mail"
+                        required pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+                        title="Only @(stud.)noroff.no domains are allowed to register">
                 </div>
                 <!-- Password-->
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">
                         <i class="fa-solid fa-lock" style="color: #34435E;"></i>
                     </span>
-                    <input type="password" id="inputPassword" name="password" class="form-control"
+                    <input type="password" id="inputPassword" name="password" class="form-control" minlength="8"
                         placeholder="Your password" aria-label="Password" required>
                 </div>
-                <!-- <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                <!-- <div class="input-group mb-3">
+                    <span class="input-group-text">
+                        <i class="fa-solid fa-house" style="color: #34435E;"></i>
+                    </span>
+                    <input type="url" name="banner" id="banner" class="form-control" placeholder="Banner"
+                        aria-label="Banner" title="Add url for chosen banner">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">
+                        <i class="fa-solid fa-image" style="color: #34435E;"></i>
+                    </span>
+                    <input type="url" name="avatar" id="inputAvatar" class="form-control" placeholder="Avatar"
+                        aria-label="Avatar" title="Add url for chosen avatar">
                 </div> -->
                 <div class="w-100">
                     <div id="regErrorMessage" class="badge bg-warning text-bg-warning mb-3"></div>
                 </div>
-                <button id="loginBtn" type="submit" class="btn btn-primary">Log in</button>
-                <a class="dropdown-item pt-3" href="/html/auth/register.html">New around here?<strong>
-                        Register</strong></a>
+                <button id="registerBtn" type="submit" class="btn btn-success">Register</button>
+                <a class="dropdown-item pt-3" href="../../index.html">Already a user?<strong> Log in</strong></a>
                 <!-- <a class="dropdown-item" href="#">Forgot password?</a> -->
             </form>
+
         </div>
     </main>
     <footer class="container">
@@ -73,8 +87,7 @@
             </a>
 
             <ul class="nav col-md-6 justify-content-end">
-                <li class="nav-item"><a href="/html/pages/index.html" class="nav-link px-2 text-body-secondary">Home</a>
-                </li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
             </ul>
         </div>
     </footer>
