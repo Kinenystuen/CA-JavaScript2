@@ -24,7 +24,7 @@ if (path.includes(`/auth/register`) || path === `/html/auth/register.html`) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (currentUrl.includes(`pages/index`)) {
+  if (currentUrl.includes(`pages/index`) || currentUrl.includes(`html/pages/`)) {
     posts.getPosts();
     loadProfile();
     posts.fetchPosts();
