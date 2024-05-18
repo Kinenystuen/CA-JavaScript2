@@ -9,18 +9,14 @@ const token = load("token");
 
 export async function removePost(postData) {
   const removePostURL = `${apiSocialUrl}${action}/${postData.id}`;
-  console.log(removePostURL);
-  console.log(postData);
 
   try { 
-    // Create API key
-    const { apiKeyData } = await createAPIKey();
-    console.log("API Key Data:", apiKeyData.data.key);
+    const apiKey = localStorage.getItem("apiKey");
 
     // Prepare headers
     const headersData = headers("application/json");
     headersData["Authorization"] = `Bearer ${token}`;
-    headersData["X-Noroff-API-Key"] = apiKeyData.data.key;
+    headersData["X-Noroff-API-Key"] = apiKey;
 
     const options = {
       method,
@@ -28,15 +24,21 @@ export async function removePost(postData) {
       body: JSON.stringify(postData),
     };
 
-    const response = await fetch(`${removePostURL}`, options);
+    const response = await fetch(removePostURL, options);
 
     if (response.ok) {
-      const post = await response.json();
-      console.log(post);
+      const responseData = await response.text();
+      if (responseData.trim() === '') {
+        window.location.reload();
+        return {};
+      } else {
+        window.location.reload();
+        return JSON.parse(responseData);
+      }
     } else {
       throw new Error(`Failed to remove post: ${response.statusText}`);
     }
   } catch (error) {
-    console.error("Error removing post:", error);
+    throw error;
   }
 }

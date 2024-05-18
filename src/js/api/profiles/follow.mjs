@@ -2,12 +2,12 @@ import { apiSocialUrl } from "../constants.mjs";
 import { headers } from "../headers.mjs";
 import { load } from "../headers.mjs";
 
-const action = "/posts";
+const action = "/profiles";
 const method = "put";
 const token = load("token");
 
-export async function updatePost(postData) {
-  const updatePostURL = `${apiSocialUrl}${action}/${postData.id}`;
+export async function followProfile(profileData) {
+  const updateProfileURL = `${apiSocialUrl}${action}/${profileData.name}/follow`;
 
   try { 
     const apiKey = localStorage.getItem("apiKey");
@@ -19,19 +19,18 @@ export async function updatePost(postData) {
 
     const options = {
       method,
-      headers: headersData,
-      body: JSON.stringify(postData),
+      headers: headersData
     };
 
-    const response = await fetch(`${updatePostURL}`, options);
+    const response = await fetch(`${updateProfileURL}`, options);
 
     if (response.ok) {
-      const post = await response.json();
-      window.location.reload();
+      const profile = await response.json();
+    //   window.location.reload();
     } else {
-      throw new Error(`Failed to edit post: ${response.statusText}`);
+      throw new Error(`Failed to edit profile: ${response.statusText}`);
     }
   } catch (error) {
-    console.error("Error updating post:", error);
+    console.error("Error updating profile:", error);
   }
 }
