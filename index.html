@@ -13,26 +13,70 @@
 
 <body class="">
     <header>
-    </header>
-    <main class=" min-vh-100 bg-body-tertiary">
-        <div id="frontPage" class="container d-flex align-items-center justify-content-center vh-100 flex-column">
-            <div class="bg-body d-flex flex-column p-5 align-items-center text-center text-muted justify-content-center rounded-5 border border-dashed">
-                <h1 class="h3 mb-3 fw-normal">Noroff Media</h1>
-                <div class="p-4 rounded">
-                    
-                    <a href="/html/auth/login.html" class="d-inline-flex align-items-center btn btn-primary btn-lg px-4">
-                        Login
-                    </a>
-                    
-                    <a href="/html/auth/register.html" class="btn btn-outline-secondary btn-lg px-4">
-                        Register
-                    </a>
-                </div>
-                <p class="mt-3 mb-3 text-body-secondary">© 2024</p>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Noroff media</a>
             </div>
+        </nav>
+    </header>
+
+
+    <main class=" min-vh-80">
+        <div id="loginContainer"
+            class="container col-lg-5 col-sm-7 col-md-5 d-flex align-items-center justify-content-center vh-80 flex-column">
+            <form id="loginForm" action="/auth/login" method="post" class="p-4 rounded bg-white">
+                <!-- <div class="input-group mb-3">
+                    <span class="input-group-text">
+                        <i class="fa-solid   fa-user" style="color: #34435E;"></i>
+                    </span>
+                    <input type="text" class="form-control" id="username1" placeholder="Username" aria-label="Username"
+                        aria-describedby="basic-addon1" control-id="ControlID-5" required>
+                </div> -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text">
+                        <i class="fa-solid fa-at" style="color: #34435E;"></i>
+                    </span>
+                    <input type="email" id="inputEmail" name="email" class="form-control" placeholder="E-mail"
+                        aria-label="E-mail" required title="Your email">
+                </div>
+                <!-- Password-->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="fa-solid fa-lock" style="color: #34435E;"></i>
+                    </span>
+                    <input type="password" id="inputPassword" name="password" class="form-control"
+                        placeholder="Your password" aria-label="Password" required>
+                </div>
+                <!-- <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                </div> -->
+                <div class="w-100">
+                    <div id="regErrorMessage" class="badge bg-warning text-bg-warning mb-3"></div>
+                </div>
+                <button id="loginBtn" type="submit" class="btn btn-primary">Log in</button>
+                <a class="dropdown-item pt-3" href="/html/auth/register.html">New around here?<strong>
+                        Register</strong></a>
+                <!-- <a class="dropdown-item" href="#">Forgot password?</a> -->
+            </form>
         </div>
     </main>
     <footer class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-body-secondary">© 2024 Noroff Media</p>
+
+            <a href="/"
+                class="col-md-2 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
+
+            <ul class="nav col-md-6 justify-content-end">
+                <li class="nav-item"><a href="/html/pages/index.html" class="nav-link px-2 text-body-secondary">Home</a>
+                </li>
+            </ul>
+        </div>
     </footer>
 </body>
 

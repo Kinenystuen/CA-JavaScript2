@@ -1,6 +1,7 @@
 import { apiSocialUrl } from "../constants.mjs";
 import { headers } from "../headers.mjs";
 import { load } from "../headers.mjs";
+import { createAPIKey } from "../createApiKey.mjs";
 
 const action = "/posts";
 const method = "put";
@@ -8,14 +9,18 @@ const token = load("token");
 
 export async function updatePost(postData) {
   const updatePostURL = `${apiSocialUrl}${action}/${postData.id}`;
+  console.log(updatePostURL);
+  console.log(postData);
 
   try { 
-    const apiKey = localStorage.getItem("apiKey");
+    // Create API key
+    const { apiKeyData } = await createAPIKey();
+    console.log("API Key Data:", apiKeyData.data.key);
 
     // Prepare headers
     const headersData = headers("application/json");
     headersData["Authorization"] = `Bearer ${token}`;
-    headersData["X-Noroff-API-Key"] = apiKey;
+    headersData["X-Noroff-API-Key"] = apiKeyData.data.key;
 
     const options = {
       method,
@@ -27,9 +32,9 @@ export async function updatePost(postData) {
 
     if (response.ok) {
       const post = await response.json();
-      window.location.reload();
+      console.log(post);
     } else {
-      throw new Error(`Failed to edit post: ${response.statusText}`);
+      throw new Error(`Failed to update post: ${response.statusText}`);
     }
   } catch (error) {
     console.error("Error updating post:", error);

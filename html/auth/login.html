@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noroff - Login</title>
-    <link rel="stylesheet" href="/dist/css/style.css">
+    <title>Noroff Media - Login</title>
+    <link rel="stylesheet" href="dist/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="/src/js/index.mjs"></script>
     <script src="https://kit.fontawesome.com/c4698ad2a1.js" crossorigin="anonymous"></script>
@@ -15,45 +15,67 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/index.html">Noroff media</a>
+                <a class="navbar-brand" href="#">Noroff media</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-header"
+                    aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbar-header">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Home <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <!-- Dropdown menu -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Features
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <!-- End Dropdown menu -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex gap-1    my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
             </div>
         </nav>
     </header>
 
 
-    <main class=" min-vh-80">
-        <div id="loginContainer"
-            class="container col-lg-5 col-sm-7 col-md-5 d-flex align-items-center justify-content-center vh-80 flex-column">
-            <form id="loginForm" action="/auth/login" method="post" class="p-4 rounded bg-white">
-                <!-- Email -->
-                <div class="input-group mb-3">
-                    <span class="input-group-text">
-                        <i class="fa-solid fa-at" style="color: #34435E;"></i>
-                    </span>
-                    <input type="email" id="inputEmail" name="email" class="form-control" placeholder="E-mail"
-                        aria-label="E-mail" required title="Your email">
-                </div>
-                <!-- Password-->
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">
-                        <i class="fa-solid fa-lock" style="color: #34435E;"></i>
-                    </span>
-                    <input type="password" id="inputPassword" name="password" class="form-control"
-                        placeholder="Your password" aria-label="Password" required>
-                </div>
-                <!-- <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Remember me</label>
-                </div> -->
-                <div class="w-100">
-                    <div id="regErrorMessage" class="badge bg-warning text-bg-warning mb-3"></div>
-                </div>
-                <button id="loginBtn" type="submit" class="btn btn-success">Log in</button>
-                <a class="dropdown-item pt-3" href="/html/auth/register.html">New around here?<strong>
-                        Register</strong></a>
-                <!-- <a class="dropdown-item" href="#">Forgot password?</a> -->
-            </form>
+    <main class="">
+        <div class="container flex-shrink-0 dropdown">
+            <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu text-small shadow" style="">
+                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
         </div>
+
     </main>
     <footer class="container">
         <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -67,8 +89,7 @@
             </a>
 
             <ul class="nav col-md-6 justify-content-end">
-                <li class="nav-item"><a href="/html/pages/index.html" class="nav-link px-2 text-body-secondary">Home</a>
-                </li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
             </ul>
         </div>
     </footer>

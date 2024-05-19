@@ -10,10 +10,10 @@
     <script type="module" src="/src/js/index.mjs"></script>
     <script src="https://kit.fontawesome.com/c4698ad2a1.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow position-relative z-3 justify-content-end"
-        data-bs-theme="dark">
+    <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow position-relative z-3" data-bs-theme="dark">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">BlogLife</a>
+
         <ul class="navbar-nav flex-row d-sm-none">
             <li class="nav-item text-nowrap">
                 <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas"
@@ -25,12 +25,15 @@
                 </button>
             </li>
         </ul>
+        <div id="navbarSearch" class="navbar-search w-100 collapse">
+            <input class="form-control w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
+        </div>
     </header>
-    <main class="bg-body-tertiary">
+    <main>
         <div class="container-lg overflow-hidden">
-            <div class="row overflow-auto z-n1 min-vh-80">
-                <div class="col-12 col-sm-3 col-md-3 col-xl-2 bg-light d-flex sticky-top position-relative d-sm-block">
-                    <div class="position-fixed p-1 offcanvas-sm offcanvas-end bg-body-tertiary mt-3" tabindex="-1"
+            <div class="row overflow-auto z-n1">
+                <div class="col-12 col-sm-3 col-md-3 col-xl-2 bg-light d-flex sticky-top position-relative min-vh-80 d-none d-sm-block">
+                    <div class="position-fixed p-1 offcanvas-sm offcanvas-end bg-body-tertiary" tabindex="-1"
                         id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                         <div class="dropdown">
                             <a href="#"
@@ -38,10 +41,10 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <img id="userImg" src="/img/user-solid.svg" alt="" width="32" height="32"
                                     class="rounded-circle me-2 object-fit-cover">
-                                <strong id="username">User</strong>
+                                <strong id="username">UserName</strong>
                             </a>
                             <ul class="dropdown-menu text-small shadow">
-                                <li><a class="dropdown-item" href="/html/pages/profile.html">Profile</a></li>
+                                <li><a class="dropdown-item" href="/html/profile/">Profile</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -51,13 +54,14 @@
                         <hr>
                         <ul class="nav nav-pills flex-column mb-auto">
                             <li class="nav-item">
-                                <a href="/html/pages/profile.html" class="nav-link link-body-emphasis"
+                                <a href="/html/profile/index.html" class="nav-link link-body-emphasis"
                                     aria-current="page">
                                     Profile
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="nav-link  active">
+
                                     Feed
                                 </a>
                             </li>
@@ -65,87 +69,67 @@
                     </div>
                 </div>
                 <div class=" bg-white col d-flex flex-column h-sm-100 p-0">
-                    <div class=" d-flex justify-content-between p-2 ps-4 pe-4 gap-1 flex-wrap">
-                        <button class="btn btn-primary " type="button" data-bs-toggle="collapse"
+                    <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid m-0">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse gap-1" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a class="nav-link disabled" aria-current="page" href="#">
+                                            <h1 class="h5">Feed</h1>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-outline-primary me-2 dropdown-toggle"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Sort
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu z-3">
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                    </ul>
+                                </div>
+                                <form class="d-flex" role="search">
+                                    <input class="form-control me-2" type="search" placeholder="Search"
+                                        aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="d-inline-flex gap-1 ms-4 mt-3">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
                             data-bs-target="#newPost" aria-expanded="false" aria-controls="newPost">
                             New post
                         </button>
-                        <form class="d-flex fit-content" role="search">
-                            <input id="search-input" class="form-control" type="search" placeholder="Search"
-                                aria-label="Search">
-                        </form>
-    
-                        <div class="dropdown">
-                            <a href="#" class="d-flex btn btn-outline-primary align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                <strong id="username">Sort</strong>
-                            </a>
-                            <ul class="dropdown-menu text-small shadow">
-                                <li>
-                                    <select id="sortListTag" class="form-select">
-                                        <option value="">Filter by tags</option>
-                                    </select>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li>
-                                    <select id="sortList" class="form-select">
-                                        <option value="">Filter by media</option>
-                                        <option value="all">All posts</option>
-                                        <option value="media">Posts with media</option>
-                                        <option value="noMedia">Posts without media</option>
-                                    </select>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                    </div>
-                    <div class="d-inline-flex ms-4 mt-2">
-
                     </div>
                     <div class="collapse" id="newPost">
                         <div class="card card-body m-4 jumbotron bg-body-tertiary">
-                            <form id="createPostForm">
-                                <!-- Title input -->
-                                <div class="input-group mb-2">
-                                    <span
-                                        class="input-group-text d-flex flex-column align-items-center justify-content-center bg-white">
-                                        <img id="newPostAvatarUrl" src="" alt="" width="32" height="32"
-                                            class="rounded-circle object-fit-cover">
-                                    </span>
-                                    <input type="text" name="title" id="postTitleInput" class="form-control"
-                                        placeholder="Title" aria-label="Title" required>
-                                </div>
-                                <!-- Textarea/body input -->
-                                <textarea class="form-control" name="body" id="postBodyInput" cols="" rows="5"
-                                    placeholder="Whats on your mind?"></textarea>
-                                <!-- Tags input -->
-                                <div class="input-group mb-2">
-                                    <span
-                                        class="input-group-text d-flex flex-column align-items-center justify-content-center border-0">
-                                        <i class="fa-solid fa-tag input-icon"></i>
-                                    </span>
-                                    <input type="text" name="tags" id="postTagsInput" class="form-control rounded my-1"
-                                        placeholder="Tags (separate with , )">
-                                </div>
-                                <div class="d-flex justify-content-end mt-2 gap-4">
-                                    <!-- Img url input -->
-                                    <div class="d-flex w-100">
-                                        <span
-                                            class="input-group-text d-flex flex-column align-items-center justify-content-center border-0">
-                                            <i class="fa-solid fa-image input-icon"></i>
-                                        </span>
-                                        <input type="url" name="url" id="postUrlInput" alt="Image" class="form-control"
-                                            placeholder="Img url" id="formFile">
-                                    </div>
-                                    <!-- Submit button -->
-                                    <button id="postBtn" class="btn btn-success rounded-pill px-3"
-                                        type="submit">Post</button>
-                                </div>
-                                <div class="">
-                                    <div id="errorMessage"
-                                        class="badge bg-warning text-bg-warning mb-3 custom-max-width text-wrap"></div>
-                                </div>
-                            </form>
-                        </div>
+                            <div class="input-group mb-2">
+                                <span
+                                    class="input-group-text d-flex flex-column align-items-center justify-content-center bg-white">
+                                    <img src="" alt="" width="32" height="32"
+                                        class="rounded-circle object-fit-cover">
+                                </span>
+                                <input type="text" class="form-control" placeholder="Title" aria-label="Title">
+                            </div>
+                            <textarea class="form-control" name="" id="" cols="" rows="5"
+                                placeholder="Whats on your mind?"></textarea>
+                            <div class="d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
+                            </div>
+                            <div class="d-flex justify-content-end mt-2 gap-4">
+                                <input class="form-control " type="file" id="formFile" control-id="ControlID-33">
+                                <button class="btn btn-success rounded-pill px-3" type="button">Post</button>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="container" id="containerTest">  
                     </div>
                     <div id="feedContainer">
                         <div class="d-flex justify-content-center align-items-center vh-60">
@@ -157,66 +141,9 @@
                 </div>
             </div>
         </div>
-        <!-- Back to top button -->
-        <button type="button" class="btn btn-primary rounded-5 btn-floating btn-m" id="btnBackToTop">
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        <!-- Modal -->
-        <div class="modal fade" id="updatePostModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog min-vh-80 d-flex justify-content-center align-items-center">
-                <div class="modal-content d-flex justify-content-center align-items-center">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="modalTitle">Update your post:</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="updatePostForm">
-                            <!-- Title input -->
-                            <div class="input-group mb-2">
-                                <span
-                                    class="input-group-text d-flex flex-column align-items-center justify-content-center bg-white">
-                                    <img id="updPostAvatar"
-                                        src="https://images.unsplash.com/photo-1579547945413-497e1b99dac0?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;q=80&amp;h=400&amp;w=400"
-                                        alt="A blurry multi-colored rainbow background" width="32" height="32"
-                                        class="rounded-circle object-fit-cover">
-                                </span>
-                                <input type="text" name="title" id="updatePostTitleInput" class="form-control"
-                                    placeholder="Title" aria-label="Title">
-                            </div>
-                            <!-- Textarea/body input -->
-                            <textarea class="form-control" name="body" id="updatePostBodyInput" cols="" rows="5"
-                                placeholder="Whats on your mind?"></textarea>
-                            <!-- Tags input -->
-                            <div class="input-group mb-2">
-                                <span
-                                    class="input-group-text d-flex flex-column align-items-center justify-content-center border-0">
-                                    <i class="fa-solid fa-tag input-icon"></i>
-                                </span>
-                                <input type="text" name="tags" id="updatePostTagsInput"
-                                    class="form-control rounded my-1" placeholder="Tags (separate with , )">
-                            </div>
-                            <!-- Img url input -->
-                            <div class="d-flex justify-content-end mt-2 gap-4">
-                                <div class="d-flex w-100">
-                                    <span
-                                        class="input-group-text d-flex flex-column align-items-center justify-content-center border-0">
-                                        <i class="fa-solid fa-image input-icon" aria-hidden="true"></i>
-                                    </span>
-                                    <input type="url" name="url" id="updatePostUrlInput" alt="Image"
-                                        class="form-control" placeholder="Img url">
-                                </div>
-                                <!-- Submit button -->
-                                <button id="btnUpdatePost" class="btn btn-success" type="submit">Update post</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 py-4 p-3 border-top bg-light">
-        <p class="col-md-4 mb-0 text-body-secondary">© 2024 Noroff media</p>
+        <p class="col-md-4 mb-0 text-body-secondary">© 2024 BlogLife</p>
 
         <a href="/"
             class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
@@ -232,3 +159,86 @@
         </ul>
     </footer>
 </body>
+<!-- <body class="">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Noroff media</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-header"
+                    aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbar-header">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Home <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Features
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex gap-1    my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="">
+        <div class="container flex-shrink-0 dropdown">
+            <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu text-small shadow" style="">
+                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item logOutBtn">Sign out</a></li>
+            </ul>
+        </div>
+
+    </main>
+    <footer class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-body-secondary">© 2024 Noroff Media</p>
+
+            <a href="/"
+                class="col-md-2 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
+
+            <ul class="nav col-md-6 justify-content-end">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+            </ul>
+        </div>
+    </footer>
+</body> -->
+
+</html>

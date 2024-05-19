@@ -19,5 +19,9 @@ export const headers = (contentType) => {
 	if (token) {
 		headers.Authorization = `Bearer ${token}`;
 	}
+	// if (apiKey) {
+    //     headers["X-Noroff-API-Key"] = apiKey;
+    // }
+	// console.log(headers)
 	return headers;
 };

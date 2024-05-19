@@ -8,6 +8,14 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 
+.help {
+    display: none;
+}
+
+input:invalid + .help {
+    display: block;
+}
+
 .loaderArea {
     display: flex;
     justify-content: center;
@@ -33,40 +41,6 @@
     }
 }
 
-.max-vh-80 {
-    max-height: 80vh;
-}
-
-#btnBackToTop {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: none;
-  }
-#followBtn, #newPostBtn {
-    display: none;
-}
-#followBtn {
-    width: fit-content;
-}
-.fit-content {
-    width: fit-content;
-}
-
-// when register, show guidelines
-.help {
-    display: none;
-}
-input:invalid + .help {
-    display: block;
-}
-
-// hover effect
-.custom-hover:hover {
-    color: #fff; 
-    background-color: #f8f9fa; 
-  }
-
-.custom-max-width {
-    max-width: 400px;
+body {
+    background-color: $blue;
 }
