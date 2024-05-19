@@ -2,7 +2,6 @@ import { apiSocialUrl } from "../constants.mjs";
 import { headers } from "../headers.mjs";
 import { load } from "../headers.mjs";
 import { createAPIKey } from "../createApiKey.mjs";
-import { isLoggedIn } from "../auth/status.mjs";
 import { authFetch } from "../authFetch.mjs";
 
 import { displayFeed } from "../../display/feedDisplay.mjs";
@@ -74,8 +73,4 @@ export async function sortFuntion() {
     const filteredPostsData = { ...postsData, data: posts };
     displayFeed(filteredPostsData);
   });
-}
-
-if (currentUrl.includes("pages/index")) {
-  sortFuntion();
 }

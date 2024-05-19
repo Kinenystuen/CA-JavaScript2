@@ -121,7 +121,3 @@ export async function filterByTag() {
     getPosts();
   });
 }
-if (currentUrl.includes("pages/index")) {
-  searchFunction();
-  filterByTag();
-}

@@ -30,6 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
     posts.fetchPosts();
     handlers.setCreatePostForm();
     getTags();
+    posts.filterByTag();
+    posts.searchFunction();
+    posts.sortFuntion();
   }
   if (currentUrl.includes(`pages/post`)) {
     posts.getPost();
@@ -45,6 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
     handlers.setCreatePostForm();
 
   }
+//   if (currentUrl.includes(`pages/followingFeed`)) {
+//     posts.getPostsByFollowing();
+//   }
   const userLoggedIn = isLoggedIn();
     if (userLoggedIn) {
         handlers.setLogOut();
